@@ -1875,18 +1875,6 @@
             background: #e67e22;
         }
 
-        
-        /* Tinh chinh sidebar khi an binh luan trong photo viewer */
-        .photo-sidebar {
-            flex: 0 0 auto !important;
-            min-width: auto !important;
-            background: #fff !important;
-        }
-        .sidebar-header {
-            border-bottom: none !important;
-            gap: 20px !important;
-            padding: 10px 15px !important;
-        }
 
         /* --- MOBILE RESPONSIVENESS --- */
         @media (max-width: 768px) {
@@ -2769,12 +2757,12 @@
                     <button class="close-gallery-btn" id="closePhotoBtnDesktop"
                         style="color: #333; font-size: 1.5rem;"><i class="fa-solid fa-xmark"></i></button>
                 </div>
-                <div class="comments-list" id="photoCommentsList" style="display: none !important;">
+                <div class="comments-list" id="photoCommentsList">
                     <!-- Comments injected here -->
                     <p style="text-align: center; color: #999; font-style: italic; margin-top: 20px;">Đang tải bình
                         luận...</p>
                 </div>
-                <div class="comment-input-area" style="display: none !important;">
+                <div class="comment-input-area">
                     <input type="text" id="photoCommentName" placeholder="Tên của bạn..." required>
                     <input type="text" id="photoCommentText" placeholder="Viết bình luận..." required>
                     <button id="sendPhotoCommentBtn">Gửi bình luận</button>
@@ -2786,7 +2774,7 @@
     <!-- Firebase Script (Realtime Comments) -->
     <script type="module">
         import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
-        import { getFirestore, collection, addDoc, onSnapshot, serverTimestamp, query, orderBy, doc, getDoc, setDoc, updateDoc, increment }
+        import { getFirestore, collection, addDoc, onSnapshot, serverTimestamp, query, orderBy, doc, getDoc, setDoc, updateDoc, increment, where }
             from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
 
         // ==========================================
@@ -3042,7 +3030,7 @@
                         }
                     });
 
-                    const qComments = query(collection(db, "photos", photoId, "comments"));
+                    const qComments = query(collection(db, "photoComments"), where("photoId", "==", photoId));
                     onSnapshot(qComments, (snap) => {
                         const statComments = document.getElementById(`stat_comments_${photoId}`);
                         if (statComments) statComments.innerText = snap.size;
@@ -3107,7 +3095,7 @@
                 });
 
                 // Listen to comments
-                const q = query(collection(db, "photos", photoId, "comments"), orderBy("timestamp", "asc"));
+                const q = query(collection(db, "photoComments"), where("photoId", "==", photoId));
                 currentPhotoUnsubscribe = onSnapshot(q, (snapshot) => {
                     photoCommentsList.innerHTML = '';
                     if (snapshot.empty) {
@@ -3115,8 +3103,17 @@
                         return;
                     }
 
+                    const comments = [];
                     snapshot.forEach((cDoc) => {
-                        const data = cDoc.data();
+                        comments.push({ id: cDoc.id, ...cDoc.data() });
+                    });
+                    comments.sort((a, b) => {
+                        const t1 = a.timestamp ? (a.timestamp.toMillis ? a.timestamp.toMillis() : 0) : 0;
+                        const t2 = b.timestamp ? (b.timestamp.toMillis ? b.timestamp.toMillis() : 0) : 0;
+                        return t1 - t2;
+                    });
+
+                    comments.forEach((data) => {
                         const html = `
                             <div class="comment-item">
                                 <strong>${data.name}</strong>
@@ -3190,7 +3187,8 @@
             sendPhotoCommentBtn.innerText = "Đang gửi...";
 
             try {
-                await addDoc(collection(db, "photos", currentPhotoId, "comments"), {
+                await addDoc(collection(db, "photoComments"), {
+                    photoId: currentPhotoId,
                     name: name,
                     text: text,
                     timestamp: serverTimestamp()
