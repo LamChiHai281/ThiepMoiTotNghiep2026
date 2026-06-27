@@ -1875,6 +1875,19 @@
             background: #e67e22;
         }
 
+        
+        /* Tinh chinh sidebar khi an binh luan trong photo viewer */
+        .photo-sidebar {
+            flex: 0 0 auto !important;
+            min-width: auto !important;
+            background: #fff !important;
+        }
+        .sidebar-header {
+            border-bottom: none !important;
+            gap: 20px !important;
+            padding: 10px 15px !important;
+        }
+
         /* --- MOBILE RESPONSIVENESS --- */
         @media (max-width: 768px) {
             .name-signature {
@@ -2756,12 +2769,12 @@
                     <button class="close-gallery-btn" id="closePhotoBtnDesktop"
                         style="color: #333; font-size: 1.5rem;"><i class="fa-solid fa-xmark"></i></button>
                 </div>
-                <div class="comments-list" id="photoCommentsList">
+                <div class="comments-list" id="photoCommentsList" style="display: none !important;">
                     <!-- Comments injected here -->
                     <p style="text-align: center; color: #999; font-style: italic; margin-top: 20px;">Đang tải bình
                         luận...</p>
                 </div>
-                <div class="comment-input-area">
+                <div class="comment-input-area" style="display: none !important;">
                     <input type="text" id="photoCommentName" placeholder="Tên của bạn..." required>
                     <input type="text" id="photoCommentText" placeholder="Viết bình luận..." required>
                     <button id="sendPhotoCommentBtn">Gửi bình luận</button>
