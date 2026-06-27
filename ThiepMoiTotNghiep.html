@@ -1874,7 +1874,7 @@
         .comment-input-area button:hover {
             background: #e67e22;
         }
-    
+
         /* --- MOBILE RESPONSIVENESS --- */
         @media (max-width: 768px) {
             .name-signature {
@@ -1883,40 +1883,49 @@
                 line-height: 1.1;
                 margin: 5px 0 10px 0 !important;
             }
+
             .foil-name {
                 font-size: clamp(1.5rem, 7vw, 3.5rem) !important;
             }
+
             .foil-sub {
                 font-size: clamp(0.5rem, 2.5vw, 0.8rem) !important;
                 letter-spacing: 2px !important;
             }
+
             .wax-seal {
                 width: clamp(50px, 15vw, 110px) !important;
                 height: clamp(50px, 15vw, 110px) !important;
             }
+
             .envelope-wrapper {
                 margin-top: 50px;
             }
-            
+
             /* Make the inner card fit its content nicely without overflowing */
             .inner-card {
                 padding: 15px 10px !important;
                 overflow: hidden;
             }
+
             .top-row {
                 margin-bottom: 5px !important;
             }
+
             .date-stacked {
                 font-size: 1.8rem !important;
             }
+
             .org-text {
                 font-size: 0.6rem !important;
             }
+
             .grad-inv-cursive {
                 font-size: clamp(1.5rem, 6vw, 3.5rem) !important;
                 margin-bottom: 5px !important;
                 margin-top: -5px !important;
             }
+
             .invite-line {
                 font-size: clamp(0.5rem, 1.8vw, 0.75rem) !important;
                 margin-bottom: 5px !important;
@@ -1926,47 +1935,64 @@
                 grid-template-columns: 1fr !important;
                 gap: 20px;
             }
-            .detail-card, .rsvp-box, .dresscode-box {
+
+            .detail-card,
+            .rsvp-box,
+            .dresscode-box {
                 padding: 25px 15px !important;
                 border-radius: 20px !important;
             }
+
             .ed-day {
                 font-size: 3.5rem !important;
             }
+
             .rsvp-form div {
                 margin-bottom: 15px;
             }
-            .rsvp-form input, .rsvp-form textarea, .rsvp-form select {
+
+            .rsvp-form input,
+            .rsvp-form textarea,
+            .rsvp-form select {
                 width: 100% !important;
                 box-sizing: border-box !important;
                 padding: 12px 15px !important;
             }
+
             .section {
                 padding: 50px 15px !important;
             }
+
             .hero-glass {
                 padding: 30px 15px !important;
             }
+
             .countdown-container {
                 padding: 20px 10px !important;
             }
+
             .countdown {
                 gap: 10px !important;
             }
+
             .time-box {
                 min-width: 60px !important;
                 padding: 10px !important;
             }
+
             .time-value {
                 font-size: 1.8rem !important;
             }
+
             h2.section-title {
                 font-size: 2.2rem !important;
             }
+
             .film-content img {
                 object-fit: cover !important;
             }
         }
+
         @media (max-width: 480px) {
             /* Minimal overrides for very small screens */
         }
@@ -2080,7 +2106,8 @@
 
             <i class="fa-solid fa-graduation-cap hat-icon" style="margin-bottom: 15px;"></i>
 
-            <div style="font-family: 'Cormorant Garamond', serif; font-size: 2.1rem; font-style: italic; color: var(--c-midnight); margin-bottom: 5px;">
+            <div
+                style="font-family: 'Cormorant Garamond', serif; font-size: 2.1rem; font-style: italic; color: var(--c-midnight); margin-bottom: 5px;">
                 Trân trọng kính mời đến dự
             </div>
 
@@ -2106,7 +2133,7 @@
             <p class="invite-ceremony-text"
                 style="max-width: 650px; margin: 25px auto 10px auto; font-style: italic; font-size: 1.15rem; line-height: 1.8;">
                 Sau những năm tháng nỗ lực dưới mái trường Đại học An Giang, ngày tốt nghiệp chính là cột mốc ghi dấu sự
-                trưởng thành của tôi. Niềm vui ấy sẽ trọn vẹn hơn bao giờ hết khi có sự đồng hành và chia sẻ của Quý anh
+                trưởng thành của em. Niềm vui ấy sẽ trọn vẹn hơn bao giờ hết khi có sự đồng hành và chia sẻ của Quý anh
                 chị cùng toàn thể bạn bè thân thương!
             </p>
         </div>
@@ -2162,7 +2189,8 @@
                     </div>
                     <div class="ed-bottom">13:00 - 17:30</div>
                 </div>
-                <p><em>Hẹn mọi người lúc 15:00 tại hội trường để cùng mình lưu lại khoảnh khắc đáng nhớ này nhé!</em>
+                <p><em>Hẹn anh/chị/bạn bè lúc 15:00 tại hội trường để cùng em/tôi lưu lại khoảnh khắc đáng nhớ này
+                        nhé!</em>
                 </p>
             </div>
 
@@ -2344,11 +2372,16 @@
         <h2 class="section-title reveal text-gradient-sun">Trang Phục Tham Dự</h2>
         <div class="divider reveal"></div>
 
-        <div class="dresscode-box glass-card reveal">
+        <div class="dresscode-box glass-card reveal" style="text-align: center;">
+            <div class="detail-icon" style="margin: 0 auto 20px auto; color: var(--c-sun); background: var(--c-white); border: 2px solid rgba(242, 169, 0, 0.2);">
+                <i class="fa-solid fa-shirt"></i>
+            </div>
             <h3 style="font-size: 2rem; color: var(--c-midnight); margin-bottom: 15px;">Dress Code</h3>
-            <p style="font-size: 1.1rem; color: var(--text-main);">Kính mong quý khách mặc trang phục lịch sự, phù hợp
-                với không khí buổi lễ. Không quy định màu sắc bắt buộc, sự hiện diện của quý khách đã là niềm vinh hạnh
-                lớn nhất.</p>
+            <p style="font-size: 1.1rem; color: var(--text-main);">Kính mong anh/chị/bạn bè mặc trang phục lịch sự, phù
+                hợp với
+                không khí buổi lễ, không quy định màu sắc bắt buộc. Sự hiện diện của anh/chị/bạn bè chính là món quà
+                tuyệt vời
+                nhất đối với em/tôi.<br><br><em>Trân trọng!</em></p>
         </div>
     </section>
 
@@ -2358,11 +2391,12 @@
         <div class="divider reveal"></div>
 
         <div class="rsvp-box glass-card reveal">
-            <div style="font-family: 'Cormorant Garamond', serif; font-size: 1.6rem; font-style: italic; line-height: 1.6; color: var(--c-midnight); margin-bottom: 20px;">
-                "Thời gian dẫu có trôi đi, nhưng những cái ôm, nụ cười và bức ảnh của ngày hôm nay sẽ là chiếc hộp cất giữ thanh xuân chúng ta không bao giờ phai nhạt. Sự hiện diện của bạn chính là mảnh ghép để bức tranh kỷ niệm ấy trở nên hoàn hảo."
+            <div
+                style="font-family: 'Cormorant Garamond', serif; font-size: 1.6rem; font-style: italic; line-height: 1.6; color: var(--c-midnight); margin-bottom: 20px;">
+                "Thời gian dẫu có trôi đi, nhưng những cái ôm, nụ cười và bức ảnh của ngày hôm nay sẽ là chiếc hộp cất
+                giữ thanh xuân chúng ta không bao giờ phai nhạt. Sự hiện diện của bạn chính là mảnh ghép để bức tranh kỷ
+                niệm ấy trở nên hoàn hảo."
             </div>
-            <p style="margin-bottom: 30px; font-size: 1.1rem;">Để thuận tiện cho việc tiếp đón chu đáo nhất, xin vui
-                lòng xác nhận sự tham dự của bạn trước ngày 05/07/2026.</p>
 
             <div class="rsvp-form">
                 <div>
@@ -2378,6 +2412,10 @@
             <button class="btn-primary" id="confirmBtn">
                 <i class="fa-solid fa-check" style="margin-right: 8px;"></i> Tôi Sẽ Tham Dự
             </button>
+
+            <p style="margin-top: 20px; font-size: 1rem; color: var(--text-muted); font-style: italic;">
+                Để thuận tiện cho việc tiếp đón chu đáo nhất, xin vui lòng xác nhận sự tham dự của anh/chị trước ngày <strong>05/07/2026</strong>.
+            </p>
         </div>
     </section>
 
